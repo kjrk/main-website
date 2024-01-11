@@ -11,5 +11,62 @@ a.youtube {
   }
   
   a.instagram {
-    color: black;
+    color: rgb(255, 255, 255);
+  }
+
+  .App {
+    text-align: center;
+  }
+ 
+  .rotating-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+ 
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    border-radius: 50%;
+  
+  }
+
+  .icon1 { transform: rotate(0deg) translate(100px) rotate(0deg); }
+  .icon2 { transform: rotate(51.4286deg) translate(100px) rotate(-51.4286deg); }
+  .icon3 { transform: rotate(102.8571deg) translate(100px) rotate(-102.8571deg); }
+  .icon4 { transform: rotate(154.2857deg) translate(100px) rotate(-154.2857deg); }
+  .icon5 { transform: rotate(205.7143deg) translate(100px) rotate(-205.7143deg); }
+  .icon6 { transform: rotate(257.1429deg) translate(100px) rotate(-257.1429deg); }
+  .icon7 { transform: rotate(308.5714deg) translate(100px) rotate(-308.5714deg); }
+
+  .rotate-anticlockwise {
+    animation: rotateAntiClockwise 10s linear infinite;
+    font-size: 55px;
+  }
+
+  @keyframes rotateAntiClockwise {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg); /* Adjust the rotation angle as needed */
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
