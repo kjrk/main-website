@@ -1,5 +1,6 @@
 import "./App.css";
 import "./css/social-media.css";
+import "./css/animated-logo.css";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +18,10 @@ import {
   SiObsidian,
 } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
+
+import myVideo from "./video/q-ba39153a.webm";
+import { useEffect, useRef } from "react";
+
 function App() {
   const RotatingCircle = () => {
     return (
@@ -59,11 +64,30 @@ function App() {
       </div>
     );
   };
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+
+    const playVideo = () => {
+      videoElement.currentTime = 0; // Reset video to the beginning
+      videoElement.play();
+    };
+
+    const intervalId = setInterval(playVideo, 4000); // Play the video every 4 seconds
+
+    // Start playing the video on component mount
+    videoElement.play();
+
+    // Cleanup: clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
     <div className="App">
       <header className="App-header">
         <motion.div
+          style={{ width: "100%" }}
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -72,14 +96,37 @@ function App() {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          {/*   <img src={logo} className="App-logo" alt="logo" />
-           */}
-          <RotatingCircle />
-          <div style={{ marginTop: "100px" }}>
-            <p>Hello there</p>
+          {/*   <RotatingCircle /> */}
+
+          <div>
+            <div style={{ marginTop: "100px" }}>
+              <b>
+                <h1>PROJECT: WEBSITE</h1>
+              </b>
+            </div>
+            <div
+              className="video-background"
+              style={{ width: "100%", display: "flex" }}
+            >
+              <video ref={videoRef} muted playsInline>
+                <source src={myVideo} type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+
+              <div
+                className="content"
+                style={{ display: "flex", justifyContent: "center" }}
+              >
+                {/*  <RotatingCircle /> */}
+
+                <a href="" class="original-button">
+                  Enter
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div
+          {/*  <div
             style={{
               display: "flex",
               direction: "row",
@@ -112,7 +159,7 @@ function App() {
                 <FontAwesomeIcon icon={faInstagram} size="2x" />
               </a>
             </motion.div>
-          </div>
+          </div> */}
         </motion.div>
       </header>
     </div>
