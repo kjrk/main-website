@@ -1,0 +1,51 @@
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+.main-layout {
+  display: flex;
+  background-color: #141414;
+  width: 100%;
+  flex-direction: column;
+}
+
+.about-me-layout {
+  display: flex;
+  background-color: #141414;
+  width: 100%;
+}
+
+.nav-bar-layout {
+  display: flex;
+  height: 5vh;
+  width: 100%;
+  background-color: #141414;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  
+}
+
+.show-off-layout {
+  display: flex;
+  width: 100%;
+  background-color: rgb(167, 146, 30);
+  
+}
