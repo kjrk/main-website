@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 const NavBar = () => {
   const navItems = [
     "Home",
@@ -9,6 +10,7 @@ const NavBar = () => {
     "Hybrid Builds",
     "Cognitive Prowess",
   ];
+  const navigate = useNavigate();
   return (
     <div style={{ marginLeft: "180px" }}>
       <div
@@ -19,10 +21,16 @@ const NavBar = () => {
           flexDirection: "row",
           gap: "50px",
           color: "white",
+          opacity: "100%",
         }}
       >
         {navItems.map((m) => (
-          <b style={{ cursor: "pointer" }}>{m} </b>
+          <b
+            style={{ cursor: "pointer" }}
+            onClick={() => navigate(`/${m.toLowerCase()}`)}
+          >
+            {m}{" "}
+          </b>
         ))}
       </div>
     </div>

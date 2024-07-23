@@ -17,3 +17,11 @@ code {
 body, html { 
   font-family: 'Vazir', sans-serif;
 }
+
+button {
+  cursor: pointer;
+  
+}
+button:hover {
+  color: aliceblue;
+}

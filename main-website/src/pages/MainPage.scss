@@ -33,10 +33,12 @@ a{
 }
 
 .nav-bar-layout {
+  z-index: 1000;
+  opacity: 15%;
   display: flex;
   height: 5vh;
   width: 100%;
-  background-color: #141414;
+  background-color: #fafafa;
   position: fixed;
   top: 0;
   z-index: 1000;

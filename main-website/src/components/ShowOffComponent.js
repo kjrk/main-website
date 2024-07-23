@@ -3,6 +3,10 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import "./ShowOffComponent.scss";
 import "../pages/MainPage.scss";
+import AnimatedText from "./AnimatedText";
+import { AdvancedVideo, lazyload } from "@cloudinary/react";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { CloudinaryVideo } from "@cloudinary/url-gen";
 
 const items = [
   {
@@ -10,7 +14,7 @@ const items = [
     title: "PROJECT JARVIS",
     img: "",
     description:
-      "desc desc desc descdesc descdesc descdesc descdesc descdesc descdesc descdesc descdesc desc desc desc",
+      "Project Jarvis is an AI designed to automate the home experience, whether it is managing finances, welcoming guests, acknowledging voice commands, or even looking up contextual information about Kelvin's life.",
     button: "See More Software",
   },
   {
@@ -18,7 +22,7 @@ const items = [
     title: "AMBITIOUS ROUTINE",
     img: "",
     description:
-      "desc desc desc descdesc descdesc descdesc descdesc descdesc descdesc descdesc descdesc desc desc desc",
+      "A card routine to show off aspects of sleight of hand and finger dexterity.",
     button: "See More Magic",
   },
   {
@@ -26,23 +30,23 @@ const items = [
     title: "BACK FLIP",
     img: "",
     description:
-      "desc desc desc descdesc descdesc descdesc descdesc descdesc descdesc descdesc descdesc desc desc desc",
+      "A physical acrobatic skill that is impressive to look at. Trains your mind to not fear the jump while simultanously unlocking the transfer of energy from toe to hand.",
     button: "See More Physical Skills",
   },
   {
     id: 4,
-    title: "MENTAL PALACE",
+    title: "TAYLOR SWIFT",
     img: "",
     description:
-      "desc desc desc descdesc descdesc descdesc descdesc descdesc descdesc descdesc descdesc desc desc desc",
-    button: "See More Mental Skills",
+      "A painting of the Taylor Swift's face. Focusing on shades, colour and strokes.",
+    button: "See More Paintings",
   },
   {
     id: 5,
     title: "RUSH E",
     img: "",
     description:
-      "desc desc desc descdesc descdesc descdesc descdesc descdesc descdesc descdesc descdesc desc desc desc",
+      "A song many know and is seen as a hard song to master. The main focus is finger dexterity and hand to eye co-ordination.",
     button: "See More Music",
   },
 ];
@@ -54,17 +58,22 @@ const Single = ({ item }) => {
     offset: ["start start", "end start"], */,
   });
   const y = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+
+  const cld = new CloudinaryVideo({ cloud: { cloudName: "dczgscern" } });
   return (
     <section>
       <div className="container">
         <div className="wrapper">
           <div className="image-container" ref={ref}>
-            <img src={item.img} alt="" />
+            {/* <img src={item.img} alt="" /> */}
+            <div></div>
           </div>
 
           <motion.div className="text-container" style={{ y }}>
             <h2>{item.title}</h2>
-            <p>{item.description}</p>
+            <p>
+              <AnimatedText text={item.description} />
+            </p>
             <button>{item.button}</button>
           </motion.div>
         </div>
@@ -84,7 +93,7 @@ const ShowOffComponent = () => {
   return (
     <div className="show-off" ref={ref}>
       <div className="progress">
-        <h1>PROJECTS</h1>
+        {/*   <h1>PROJECTS</h1> */}
         <motion.div style={{ scaleX }} className="progress-bar"></motion.div>
       </div>
       {items.map((item) => (

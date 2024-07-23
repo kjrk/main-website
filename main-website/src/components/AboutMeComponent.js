@@ -1,4 +1,5 @@
 import "./AboutMeComponent.css";
+import AnimatedText from "./AnimatedText";
 const AboutMeComponent = () => {
   return (
     <>
@@ -14,11 +15,13 @@ const AboutMeComponent = () => {
         >
           <b style={{ fontSize: "80px" }}>KEL</b>
           <b style={{ fontSize: "100px" }}>
-            <i>KING OF ALL TRADES</i>
+            <i>
+              <AnimatedText text="KING OF ALL TRADES" className="" />
+            </i>
           </b>
         </div>
         <div
-          style={{ width: "2px", height: "100%", backgroundColor: "white" }}
+          style={{ width: "3px", height: "100%", backgroundColor: "white" }}
         ></div>
       </div>
       <div className="right-layout">
@@ -31,20 +34,35 @@ const AboutMeComponent = () => {
             flexDirection: "column",
           }}
         >
-          <b
-            style={{ display: "flex", width: "auto", justifyContent: "center" }}
+          <div
+            style={{
+              background: "gray",
+              height: "600px",
+              borderRadius: "10px",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
           >
-            ABOUT ME
-          </b>
+            <b
+              style={{
+                display: "flex",
+                width: "auto",
+                justifyContent: "center",
+              }}
+            >
+              ABOUT ME
+            </b>
 
-          <p>
-            Self-taught across Engineering, Musicality, Artistry, Athletics, and
-            Cognitive Conditioning. <br></br> <br></br>The aim is to
-            proficiently master diverse skills, honing learning techniques at an
-            accelerated pace relative to the norm. By achieving this, each skill
-            is intended to serve as a gateway to expanding various real world
-            opportunities.
-          </p>
+            <p>
+              Self-taught across Engineering, Musicality, Artistry, Athletics,
+              and Cognitive Conditioning. <br></br> <br></br>The aim is to
+              proficiently master diverse skills, honing learning techniques at
+              an accelerated pace relative to the norm. By achieving this, each
+              skill is intended to serve as a gateway to expanding various real
+              world opportunities.
+            </p>
+          </div>
         </div>
       </div>
     </>
